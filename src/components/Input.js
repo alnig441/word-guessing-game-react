@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 
 export default function Input(props) {
   const data = props.data;

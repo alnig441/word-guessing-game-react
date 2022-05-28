@@ -1,5 +1,4 @@
 import React from 'react';
-import { useEffect, componentDidUpdate, componentDidMount, setState } from 'react';
 import './App.css';
 import Sentence from './components/Sentence';
 import Instructions from './components/Instructions';
@@ -7,15 +6,12 @@ import Score from './components/Score';
 import Grid from './components/Grid';
 import { API } from './utilities/APIutil';
 
-const SENTENCES = [];
-
 class App extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
       currentSentence: 'loading',
-      score: 0,
       index: 0,
       sentences: [],
       complete: false
@@ -35,9 +31,6 @@ class App extends React.Component {
 
   }
 
-  componentDidUpdate(...prevProps) {
-  }
-
   getNext() {
     if(this.state.index < 9) {
       this.setState((state) => {
@@ -45,9 +38,6 @@ class App extends React.Component {
       })
       this.setState((state) => {
         return { currentSentence: state.sentences[state.index]}
-      })
-      this.setState((state) => {
-        return { score: state.score + 1 }
       })
     } else {
       this.setState({ complete: true })
@@ -60,7 +50,7 @@ class App extends React.Component {
         <React.Fragment >
           <Sentence sentence={this.state.currentSentence} />
           <Instructions />
-          <Score score={this.state.score}/>
+          <Score score={this.state.index}/>
           <Grid sentence={this.state.currentSentence} onClick={this.getNext}/>
         </React.Fragment>
       )

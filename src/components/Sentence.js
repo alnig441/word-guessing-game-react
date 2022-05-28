@@ -1,5 +1,3 @@
-import React from 'react';
-import { useEffect, componentDidUpdate, componentDidMount } from 'react';
 import './Sentence.css';
 
 function Sentence(props) {

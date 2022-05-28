@@ -5,12 +5,16 @@ export const API = function(){
   }
 
   async function get() {
-    let SENTENCES = [];
-    return SENTENCES = await Promise.all(URLS.map(async url => {
-      const RESPONSE =  await fetch(url);
-      const RESULT = await RESPONSE.json();
-      return RESULT.data.sentence;
-    }))
+    try {
+      return await Promise.all(URLS.map(async url => {
+        const RESPONSE =  await fetch(url);
+        const RESULT = await RESPONSE.json();
+        return RESULT.data.sentence;
+      }))
+    } catch(e) {
+      console.log('error: ', e);
+    }
+
 
   }
   return{ get: get }

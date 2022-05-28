@@ -1,9 +1,7 @@
 import Next from './Next';
-import React, { useEffect, useState, componentDidUpdate, componentDidMount } from 'react';
+import React, { useEffect, useState } from 'react';
 import './Grid.css';
 import Input from './Input';
-
-let visible = true;
 
 export default function Grid(props) {
 
@@ -18,7 +16,7 @@ export default function Grid(props) {
       setComplete(false);
       resetGrid()
     }
-  })
+  },[sentence, props.sentence])
 
   function checkLetter(e) {
     e.preventDefault();
@@ -36,7 +34,6 @@ export default function Grid(props) {
       if(userInput === correctLetter){
         thisInput.value = e.key;
         if(isLastInput && score !== numberOfInputs) {
-          console.log('last input');
           thisInput.focus();
         } else {
           thisInput.setAttribute('disabled', true);
