@@ -40,7 +40,6 @@ class App extends React.Component {
 
   getNext() {
     if(this.state.index < 9) {
-      console.log('which sentence ', this.state.index)
       this.setState((state) => {
         return { index: state.index + 1 }
       })
@@ -53,8 +52,6 @@ class App extends React.Component {
     } else {
       this.setState({ complete: true })
     }
-    console.log('did this work', this.state);
-
   }
 
   render() {
