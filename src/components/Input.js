@@ -1,12 +1,26 @@
+import React from 'react';
+
 
 export default function Input(props) {
   const data = props.data;
-  const length = data.length;
-  let grid = [];
 
-  for(var i = 0 ; i < length ; i ++ ){
-    grid.push(<input id={i} className={data[i].className} key={data[i].key} type="text" pattern="[a-zA-Z0-9]+" maxLength="1" onKeyUp={props.onKeyUp}/>)
-  }
-  return grid;
+  return (
+    <React.Fragment>
+       {data && data.map(element => {
+          let {tag, className, key, id, children, maxLength, pattern} = element
+          if(tag === "div") {
+               return(
+                  <div className={className} id={id} key={key} >
+                     {children && <Input data={children} onKeyUp={props.onKeyUp}/>}
+                   </div>
+                 )
+           } else if(tag === "input") {
+               return(
+                  <input className={className} id={id} key={key} maxLength={maxLength} onKeyUp={props.onKeyUp} pattern={pattern} />
+                )
+          }
+      })}
+   </React.Fragment>
+)
 
 }

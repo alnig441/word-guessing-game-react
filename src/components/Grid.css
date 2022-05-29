@@ -1,0 +1,34 @@
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-item {
+  flex-basis: auto;
+  width: 100%;
+  margin: 5px;
+}
+
+input {
+  width: 100%;
+  text-align: center;
+  color: white;
+  margin: 0px;
+}
+
+input.space {
+  background-color: #ffb74d;
+}
+
+input.letter {
+  background-color: #e1e1e1;
+}
+
+input:not(submit):focus {
+  outline: none;
+  color: black;
+}
+
+input[disabled] {
+  background-color: #4caf50;
+}
