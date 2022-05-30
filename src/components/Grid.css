@@ -1,3 +1,7 @@
+#grid {
+  padding: 5px;
+}
+
 .flex-container {
   display: flex;
   flex-direction: row;
@@ -14,6 +18,12 @@ input {
   text-align: center;
   color: white;
   margin: 0px;
+}
+
+input[type="submit"] {
+  width: auto;
+  color: white;
+  background-color: #388e3c;
 }
 
 input.space {

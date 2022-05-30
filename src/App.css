@@ -26,5 +26,9 @@ input {
 	padding: 0.4em;
 	margin: 0 0 0.5em 0;
 	box-sizing: border-box;
-	/* border: none; */
+	border: none;
+}
+
+.Grid {
+	padding: 5px;
 }
